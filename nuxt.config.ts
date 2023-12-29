@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
     'nuxt-og-image',
+    'nuxt-simple-robots',
+    'nuxt-simple-sitemap',
   ],
 
   hooks: {
@@ -34,6 +36,14 @@ export default defineNuxtConfig({
     families: {
       Nunito: [400, 500, 600, 700],
     },
+  },
+
+  site: {
+    url: 'https://unjs-docs-template.barbapapazes.dev',
+  },
+
+  sitemap: {
+    strictNuxtContentPaths: true,
   },
 
   routeRules: {

@@ -89,22 +89,22 @@ export default defineAppConfig({
       },
     ],
   },
-  socials: {
-    github: {
+  socials: [
+    {
       url: 'https://github.com/unjs',
       rel: 'noopener',
       target: '_blank',
       icon: 'i-simple-icons-github',
       name: 'GitHub',
     },
-    x: {
+    {
       url: 'https://x.com/unjsio',
       icon: 'i-simple-icons-x',
       rel: 'noopener',
       target: '_blank',
       name: 'X',
     },
-  },
+  ],
   toc: {
     title: 'Table of Contents',
     bottom: {
