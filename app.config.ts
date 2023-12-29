@@ -32,7 +32,7 @@ export default defineAppConfig({
     siteName: 'UnJS Docs',
   },
   github: {
-    name: 'nitro',
+    name: '',
   },
   header: {
     title: 'UnJS Docs',
