@@ -14,7 +14,7 @@
 npx nuxi init -t github:barbapapazes/unjs-docs-template docs
 ```
 
-Then, you will need to update some config value to match your project.
+Then, you will need to update some config values to match your project.
 
 In `nuxt.config.ts`:
 
@@ -22,13 +22,13 @@ In `nuxt.config.ts`:
 
 In `app.config.ts`:
 
-- Update `ui.primary` to match the project primary color
-- Update `seo.siteName` to match your project name
-- Update `github.name` to match the GitHub repository name
-- Update `header` and `footer` to match your project requirements
+- Update `ui.primary` to match the project's primary color
+- Update `seo.siteName` to match your project's name
+- Update `github.name` to match the GitHub repository's name
+- Update `header` and `footer` to match your project's requirements
 - Update `toc` GitHub links with your own repository
 
-Do not forget to update the favicon in `public/favicon.svg`. You can find your icon on the [design kit of UnJS](https://unjs.io/design-kit).
+Do not forget to update the favicon in `public/favicon.svg`. You can find your icon in the [design kit of UnJS](https://unjs.io/design-kit).
 
 ## Setup
 
@@ -40,7 +40,7 @@ pnpm install
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server at `http://localhost:3000`:
 
 ```bash
 pnpm run dev
@@ -54,10 +54,10 @@ Generate the documentation for production:
 pnpm run documentation
 ```
 
-Locally preview production build:
+Locally preview the production build:
 
 ```bash
 pnpm run preview
 ```
 
-Do not forget to add `NUXT_PUBLIC_STUDIO_TOKENS` and `NUXT_UI_PRO_LICENSE` in your environment variables.
+Do not forget to add `NUXT_PUBLIC_STUDIO_TOKENS` and `NUXT_UI_PRO_LICENSE` to your environment variables.
