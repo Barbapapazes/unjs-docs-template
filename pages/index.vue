@@ -5,29 +5,29 @@ useSeoMeta({
   title: page.value.title,
   ogTitle: page.value.title,
   description: page.value.description,
-  ogDescription: page.value.description
+  ogDescription: page.value.description,
 })
 
 defineOgImage({
   component: 'Docs',
   title: page.value.title,
-  description: page.value.description
+  description: page.value.description,
 })
 </script>
 
 <template>
-  <div>
+  <div v-if="page">
     <ULandingHero v-if="page.hero" v-bind="page.hero">
       <template #headline>
-        <UBadge v-if="page.hero.headline" variant="subtle" size="lg" class="relative rounded-full font-semibold">
-          <NuxtLink :to="page.hero.headline.to" target="_blank" class="focus:outline-none" tabindex="-1">
-            <span class="absolute inset-0" aria-hidden="true" />
-          </NuxtLink>
-
-          {{ page.hero.headline.label }}
-
-          <UIcon v-if="page.hero.headline.icon" :name="page.hero.headline.icon" class="ml-1 w-4 h-4 pointer-events-none" />
-        </UBadge>
+        <NuxtLink v-if="page.hero.headline" v-bind="page.hero.headline.link" class="group flex items-center gap-4">
+          <span class="px-3 py-1 bg-primary/20 group-hover:bg-primary/25 dark:bg-primary/20 dark:group-hover:bg-primary/25 ring-1 ring-primary/90 dark:ring-primary/70 rounded-full text-sm text-gray-950 dark:text-gray-50 nowrap font-medium transition ease-in">
+            {{ page.hero.headline.prefix }}
+          </span>
+          <span class="flex items-center gap-2 text-gray-500 group-hover:text-gray-600 dark:text-gray-400 dark:group-hover:text-gray-300 transition ease-in">
+            <span class="text-left">{{ page.hero.headline.title }}</span>
+            <span class="shrink-0 w-5 h-5 i-heroicons-chevron-right-20-solid" />
+          </span>
+        </NuxtLink>
       </template>
 
       <template #title>

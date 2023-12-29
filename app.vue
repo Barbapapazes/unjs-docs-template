@@ -1,36 +1,44 @@
 <script setup lang="ts">
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import { _yellow } from '#tailwind-config/theme/colors'
 
 const { seo } = useAppConfig()
 
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
 const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', {
   default: () => [],
-  server: false
+  server: false,
 })
 
 useHead({
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'theme-color', content: _yellow[500] },
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
+    { rel: 'icon', href: '/favicon.svg' },
   ],
   htmlAttrs: {
-    lang: 'en'
-  }
+    lang: 'en',
+    dir: 'ltr',
+    class: 'scroll-smooth',
+  },
 })
 
 useSeoMeta({
-  ogSiteName: seo?.siteName,
-  twitterCard: 'summary_large_image'
+  ogType: 'website',
+  ogSiteName: seo.siteName,
+  twitterCard: 'summary_large_image',
+  twitterSite: '@unjsio',
 })
 
 provide('navigation', navigation)
 </script>
 
 <template>
-  <div>
+  <Body>
+    <NuxtLoadingIndicator :color="_yellow[500]" />
+
     <Header />
 
     <UMain>
@@ -42,9 +50,9 @@ provide('navigation', navigation)
     <Footer />
 
     <ClientOnly>
-      <LazyUDocsSearch :files="files" :navigation="navigation" />
+      <LazyUDocsSearch v-if="navigation" :files="files" :navigation="navigation" />
     </ClientOnly>
 
     <UNotifications />
-  </div>
+  </Body>
 </template>
